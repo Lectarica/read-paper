@@ -1,0 +1,208 @@
+\documentclass[a4paper,12pt]{jarticle}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\geometry{top=25mm, bottom=25mm, left=20mm, right=20mm}
+\usepackage{hyperref}
+
+\title{Spin-Dependent Mass Enhancement under Magnetic Field in the Periodic Anderson
+Model}
+\author{Seiichiro Onari, Hiroshi Kontani and Yukio Tanaka(名大)}
+\date{\today}
+
+\linespread{0.9}
+\begin{document}
+
+\maketitle
+
+\section*{研究背景・問題意識}
+\begin{itemize}
+    \item 重いフェルミオン化合物の中には、反強磁性量子臨界点付近に位置していることが原因と考えられる非フェルミ液体的電子挙動を示すものがある。CeCoIn5など。
+    \item 非フェルミ流体的振る舞いは磁場により敏感に変化することも報告されている。スピン有効質量の比は15Tにおいて3にも達する。
+\end{itemize}
+
+\section*{研究目的}
+\begin{itemize}
+    \item 磁場が存在する場合の重いフェルミオン化合物に関する理論的研究を行いたい。特に有効質量の増大が磁場によってどのように増大するかを明らかにしたい。
+    \item グッツヴィラー近似を用いたハバード模型の研究はすでにあるが、この近似ではAF量子臨界点近傍の強いスピン揺らぎが考慮されていない。またDMFTや揺らぎ交換近似FLEXを用いて磁場下でのハバード模型は研究されたが、スピン依存の質量増大は報告されていない。
+\end{itemize}
+
+\section*{手法}
+\begin{itemize}
+    \item 用いるのは周期アンダーソン模型。この模型では局在したf電子と伝導電子の混成によって、質量増大因子がハバード模型の場合よりも大きくなる。
+\end{itemize}
+
+\begin{equation}
+    \label{eq:H}
+    H \;=\;
+    \sum_{k,\sigma}
+    \Bigl[
+    (\epsilon_f + B\,\sigma)\,f_{k\sigma}^{\dagger}\,f_{k\sigma}
+    \;+\;
+    (\epsilon_{c,k} + B\,\sigma)\,c_{k\sigma}^{\dagger}\,c_{k\sigma}
+    \;+\;
+    V \bigl(f_{k\sigma}^{\dagger} c_{k\sigma} + c_{k\sigma}^{\dagger} f_{k\sigma}\bigr)
+    \Bigr]
+    \;+\;
+    \frac{U}{N}
+    \sum_{k,k',q}
+    f_{k\uparrow}^{\dagger}\,f_{k+q,\uparrow}\,
+    f_{k'\downarrow}^{\dagger}\,f_{k'-q,\downarrow}.
+\end{equation}
+
+\begin{equation}
+    \label{eq:epsilon_c}
+    \epsilon_{c,k}
+    \;=\;
+    -2\,t_{1}\,\bigl[\cos(k_x) + \cos(k_y)\bigr]
+    \;-\;
+    4\,t_{2}\,\cos(k_x)\cos(k_y)
+    \;-\;
+    2\,t_{3}\,\bigl[\cos(2k_x) + \cos(2k_y)\bigr]
+    \;-\;
+    2\,t_{z}\,\cos(k_z).
+\end{equation}
+
+\begin{equation}
+    \label{eq:Gf}
+    G_{f,\sigma}(k)
+    \;=\;
+    \frac{1}{
+    \,i\epsilon_n + \mu
+    - \epsilon_f
+    - B\,\sigma
+    - \Sigma_{\sigma}(k)
+    - \dfrac{V^2}{\,i\epsilon_n + \mu - \epsilon_{c,k} - B\,\sigma}\,
+    }\,,
+\end{equation}
+
+\begin{equation}
+    \label{eq:Gc}
+    G_{c,\sigma}(k)
+    \;=\;
+    \frac{1}{
+    \,i\epsilon_n + \mu
+    - \epsilon_{c,k}
+    - B\,\sigma
+    - \dfrac{V^2}{\,i\epsilon_n + \mu - \epsilon_f - B\,\sigma - \Sigma_{\sigma}(k)}\,
+    }\,.
+\end{equation}
+
+\begin{equation}
+    \label{eq:z_inv}
+    z_{k\sigma}^{-1}
+    \;=\;
+    1
+    \;-\;
+    \left.
+    \frac{\partial \,\mathrm{Re}\,\Sigma_{\sigma}(\omega,k)}{\partial \omega}
+    \right|_{\omega=0}
+    \;+\;
+    \frac{V^{2}}{\bigl(\mu - \epsilon_{c,k} - B\,\sigma\bigr)^{2}}.
+\end{equation}
+
+\begin{equation}
+    \label{eq:Sigma_diagram}
+    \Sigma_{\sigma}(i\epsilon_j)
+    \;=\;
+    \sum_{n=0}^{\infty}
+    \;\sum_{\Gamma_n}
+    \;\sum_{\{\epsilon_i\}, \{\epsilon'_i\}}
+    U^{\,n+1}\,
+    a\bigl(\Gamma_{n+1}, n+1, \epsilon_j, \{\epsilon_i\}, \{\epsilon'_i\}\bigr)
+    \times
+    G_{\sigma}(i\epsilon_1)\cdots G_{\sigma}(i\epsilon_n)\,
+    G_{-\sigma}(i\epsilon'_1)\cdots G_{-\sigma}(i\epsilon'_{n+1}).
+\end{equation}
+
+\begin{equation}
+    \label{eq:spectral}
+    G_{\sigma}(i\epsilon_n)
+    \;=\;
+    \int_{-\infty}^{\infty}
+    d\omega
+    \;\frac{\rho_{\sigma}(\omega)}{\,i\epsilon_n - \omega\,}.
+\end{equation}
+
+\begin{equation}
+    \label{eq:Sigma_integral}
+    \Sigma_{\sigma}(i\epsilon_j)
+    \;=\;
+    \sum_{n=0}^{\infty}
+    \;\sum_{\Gamma_n}
+    \;\sum_{\{\epsilon_i\}, \{\epsilon'_i\}}
+    \int
+    d\omega_1 \cdots d\omega_n
+    d\omega'_1 \cdots d\omega'_{n+1}
+    \;
+    U^{\,n+1}\,
+    a\bigl(\Gamma_{n+1}, n+1, \epsilon_j, \{\epsilon_i\}, \{\epsilon'_i\}\bigr)
+    \;\frac{\rho_{\sigma}(\omega_1)\cdots\rho_{\sigma}(\omega_n)}
+    {\bigl(i\epsilon_{n_1}-\omega_1\bigr)\cdots\bigl(i\epsilon_{n_n}-\omega_n\bigr)}
+    \;\frac{\rho_{-\sigma}(\omega'_1)\cdots\rho_{-\sigma}(\omega'_{n+1})}
+    {\bigl(i\epsilon_{n'_1}-\omega'_1\bigr)\cdots\bigl(i\epsilon_{n'_{n+1}}-\omega'_{n+1}\bigr)}.
+\end{equation}
+
+\begin{equation}
+    \label{eq:Sigma_approx}
+    \Sigma_{\sigma}(i\epsilon_j)
+    \;\sim\;
+    \sum_{n=0}^{\infty}
+    \;\sum_{\Gamma_n}
+    \;\sum_{\{\epsilon_i\}, \{\epsilon'_i\}}
+    \int
+    d\omega_1 \cdots d\omega_n
+    d\omega'_1 \cdots d\omega'_{n+1}
+    \;
+    U^{\,n+1}\,
+    a\bigl(\Gamma_{n+1}, n+1, \epsilon_j, \{\epsilon_i\}, \{\epsilon'_i\}\bigr)
+    \prod_{i}
+    \theta(\Omega - |\omega_i|)\,\theta(\Omega - |\omega'_i|)
+    \;\frac{\rho_{\sigma}(0)^{\,n}}
+    {\bigl(i\epsilon_{n_1}-\omega_1\bigr)\cdots\bigl(i\epsilon_{n_n}-\omega_n\bigr)}
+    \;\frac{\rho_{-\sigma}(0)^{\,n+1}}
+    {\bigl(i\epsilon_{n'_1}-\omega'_1\bigr)\cdots\bigl(i\epsilon_{n'_{n+1}}-\omega'_{n+1}\bigr)}.
+\end{equation}
+
+\begin{equation}
+    \label{eq:Sigma_rel}
+    \Sigma_{\uparrow}(\omega)\,\rho_{\uparrow}(0)
+    \;\sim\;
+    \Sigma_{\downarrow}(\omega)\,\rho_{\downarrow}(0).
+\end{equation}
+
+\begin{equation}
+    \label{eq:z_ratio}
+    \frac{z_{\uparrow}^{-1}}{\,z_{\downarrow}^{-1}\,}
+    \;\sim\;
+    \frac{\rho_{\downarrow}(0)}{\,\rho_{\uparrow}(0)\,}
+    \;\sim\;
+    \frac{\bigl|\mathrm{Im}\,\Sigma_{\uparrow}(0)\bigr|}
+    {\bigl|\mathrm{Im}\,\Sigma_{\downarrow}(0)\bigr|}.
+\end{equation}
+
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=\linewidth]{example-1.png}
+%     \caption{適宜図を入れる}
+%     \label{fig:example1}
+% \end{figure}
+
+% \begin{figure}[htbp]
+%     \centering
+%     \includegraphics[width=\linewidth]{example-2.png}
+%     \caption{適宜図を入れる}
+%     \label{fig:example2}
+% \end{figure}
+
+\section*{まとめ}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\section*{感想・メモ}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\end{document}
